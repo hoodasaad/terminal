@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Terminal</title>
+</head>
+<body>
+<h1>Hello Terminal</h1>
+<script type="text/javascript" src="terminal.min.js"></script>
+<script type="text/javascript">
+function terminal_callback(){
+	hide_terminal(1);
+}
+var t_data = [];
+var rand_colors = ["FF0000",'00FF00','0000FF','FFA500','FFFF00','00FFFF','ffffff','808080','ffcccc','ffe6e6','660000','ffff00','00ffff','867979','ff9999'];
+for ( var i = 0, l = 100; i <= l; i++ ) {
+	random_clor = rand_colors[Math.floor(Math.random()*rand_colors.length)];
+	t_data.push('Terminal line <i style="color: #'+random_clor+';">('+i+')</i>');
+}
+
+
+
+terminal({
+	id: 1,
+	data: t_data,
+	speed: 0.7,
+	title: "Mahmoud Saad Terminal",
+	title_bg_color: 'white',
+	title_color: 'black',
+	textColor: "#ffffff",
+	beep: true,
+	wait: 0,
+	dir: 'ltr',
+	position: 'topRight',//topRight , topCenter , bottomLeft , bottomRight , bottomCenter , centerLeft , centerRight , centerCenter
+	background: '',
+	width: 500,
+	height: 400,
+	opacity: 0.9,
+	border: 13,
+	// margin: 60,
+	borderColor: '#432454',
+	radius: 20,
+},terminal_callback
+);
+</script>
+ </body>
+</html>
