@@ -1,1 +1,3 @@
-# terminal.github.io
+# Terminal
+Is a JQuery plugin running popup terminal to view any data like welcome messages, notifications , visits , etc.....
+# <a href="https://hoodasaad.github.io/terminal/">Learn More</a>
