@@ -1,46 +1,407 @@
 <!DOCTYPE html>
-<html>
-<head>
-	<title>Terminal</title>
-</head>
-<body>
-<h1>Hello Terminal</h1>
-<script type="text/javascript" src="terminal.min.js"></script>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Terminal</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <link href="docs/css/bootstrap.min.css" rel="stylesheet">
+    <link href="docs/css/style.css" rel="stylesheet">
+    <style type="text/css">
+      .jumbotron p{font-size: 20px;display: inline-block;margin-left: 20px;}
+      .code{
+                color: #c7254e;
+    background-color: #f9f2f4;
+    padding-left: 0;
+    border: 1px solid #e4e4e4;
+    font-size: 17px;
+      }
+      .properties{}
+      .properties .desc{}
+      .properties .def{}
+      .properties .req{}
+      .properties .reqb{font-weight: bold;}
+      .properties .v{}
+        .func .code{color: #12500b;}
+    </style>
+
+
+  </head>
+  <body>
+
+<div class="container container-fluid-x">
+<!-- <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Terminal</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#">Home</a></li>
+      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Page 1 <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="#">Page 1-1</a></li>
+          <li><a href="#">Page 1-2</a></li>
+          <li><a href="#">Page 1-3</a></li>
+        </ul>
+      </li>
+      <li><a href="#">Page 2</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+    </ul>
+  </div>
+</nav>
+ -->  <div class="jumbotron">
+    <h1>Terminal</h1> 
+    <p>Is a JQuery plugin running popup terminal to view any data like welcome messages, notifications , visits , etc.....</p> 
+      <div class="row text-right">
+      	<a href="#docs" type="button" class="btn btn-primary btn-lg">Docs</a>
+      	<button type="button" class="btn btn-success btn-lg">Download .zip</button>
+      </div>
+  </div>
+
+
+   <div class="panel panel-default">
+      <div class="panel-heading">Simple usage</div>
+      <div class="panel-body">
+        <pre class="code">
+    terminal({
+      data: ["terminal-line 1","terminal-line 2","terminal-line 3","terminal-line 4","terminal-line 5"]
+    }); </pre>
+        <div class="text-right">
+          <button class="btn btn-success terminal_simapl_usage" onclick="terminal_simapl_usage();">Run Code</button>
+        </div>
+        
+      </div>
+    </div>
+
+   <div class="panel panel-primary">
+      <div class="panel-heading">Advanced usage</div>
+      <div class="panel-body">
+<pre class="code">  terminal({
+        id: 2017,
+        data: ["terminal-line 1","terminal-line 2","terminal-line ...","terminal-line 50"],
+        speed: 0.1,
+        autoClose: true,
+        title: "Terminal Title",
+        title_bg_color: 'white',
+        title_color: 'black',
+        textColor: "#ffffff",
+        beep: true,
+        wait: 0,
+        dir: 'ltr',
+        position: 'topRight',
+        background: '#432454',
+        width: 450,
+        height: 350,
+        opacity: 0.9,
+        border: 13,
+        margin: 20,
+        borderColor: '#432454',
+        radius: 6
+    },function(){
+      console.log('Terminal Completed Callback_function()');
+    }
+  );
+        </pre>
+        <div class="text-right">
+          <button class="btn btn-success advanced-usage-code" onclick="advanced_usage_code();">Run Code</button>
+        </div>
+        
+      </div>
+    </div>
+
+<div class="panel panel-info" id="docs">
+      <div class="panel-heading">Terminal function properties</div>
+      <div class="panel-body">
+<table class="table table-striped properties">
+<thead>
+<tr>
+  <th>Property</th>
+  <th>Value</th>
+  <th>Description</th>
+  <th>Default</th>
+  <th>Importance</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><code class="w3-codespan">data</code></td>
+  <td class="v">array</td>
+  <td class="desc">is simple array like examples that is shown in terminal</td>
+  <td class="def">["Please set terminal data.."]</td>
+  <td class="req reqb">required</td>
+</tr>
+<tr>
+  <td><code class="w3-codespan">id</code></td>
+  <td class="v">integer or text</td>
+  <td class="desc">defines open terminal you can use to close it</td>
+  <td class="def">random number</td>
+  <td class="req">optional</td>
+</tr>
+
+<tr>
+  <td><code class="w3-codespan">speed</code></td>
+  <td class="v">integer milliseconds</td>
+  <td class="desc">speed of writing lines in terminal</td>
+  <td class="def">0.8</td>
+  <td class="req">optional</td>
+</tr>
+<tr>
+  <td><code class="w3-codespan">wait</code></td>
+  <td class="v">integer seconds</td>
+  <td class="desc">time in seconds before run terminal</td>
+  <td class="def">0</td>
+  <td class="req">optional</td>
+</tr>
+<tr>
+  <td><code class="w3-codespan">autoClose</code></td>
+  <td class="v">boolean</td>
+  <td class="desc">automatically terminal close after finish all lines</td>
+  <td class="def">false</td>
+  <td class="req">optional</td>
+</tr>
+
+
+<tr>
+  <td><code class="w3-codespan">title</code></td>
+  <td class="v">text</td>
+  <td class="desc">terminal title shown in head of terminal</td>
+  <td class="def">null</td>
+  <td class="req">optional</td>
+</tr>
+
+
+<tr>
+  <td><code class="w3-codespan">title_color</code></td>
+  <td class="v">Hex Color</td>
+  <td class="desc">terminal title color if is set</td>
+  <td class="def">#1a1a1a</td>
+  <td class="req">optional</td>
+</tr>
+
+
+<tr>
+  <td><code class="w3-codespan">title_bg_color</code></td>
+  <td class="v">Hex Color</td>
+  <td class="desc">terminal title background color if is set</td>
+  <td class="def">#bcbbbc</td>
+  <td class="req">optional</td>
+</tr>
+
+
+<tr>
+  <td><code class="w3-codespan">textColor</code></td>
+  <td class="v">Hex Color</td>
+  <td class="desc">terminal line color</td>
+  <td class="def">#ffffff</td>
+  <td class="req">optional</td>
+</tr>
+
+
+<tr>
+  <td><code class="w3-codespan">beep</code></td>
+  <td class="v">boolean</td>
+  <td class="desc">sound beep with every line written in terminal</td>
+  <td class="def">false</td>
+  <td class="req">optional</td>
+</tr>
+
+
+
+
+
+<tr>
+  <td><code class="w3-codespan">dir</code></td>
+  <td class="v"><select class="form-control"><option>ltr</option><option>rtl</option></select></td>
+  <td class="desc">direction of terminal line text</td>
+  <td class="def">ltr</td>
+  <td class="req">optional</td>
+</tr>
+
+
+<tr>
+  <td><code class="w3-codespan">margin</code></td>
+  <td class="v">integer</td>
+  <td class="desc">terminal margin from window screen</td>
+  <td class="def">10</td>
+  <td class="req">optional</td>
+</tr>
+
+<tr>
+  <td><code class="w3-codespan">position</code></td>
+  <td class="v"><select class="form-control"><option>topLeft</option><option>topRight</option><option>topCenter</option><option>bottomLeft</option><option>bottomRight</option><option>bottomCenter</option><option>centerLeft</option><option>centerRight</option><option>centerCenter</option></select></td>
+  <td class="desc">position of terminal</td>
+  <td class="def">topLeft</td>
+  <td class="req">optional</td>
+</tr>
+<tr>
+  <td><code class="w3-codespan">width</code></td>
+  <td class="v">integer</td>
+  <td class="desc">terminal screen width</td>
+  <td class="def">300</td>
+  <td class="req">optional</td>
+</tr>
+
+<tr>
+  <td><code class="w3-codespan">height</code></td>
+  <td class="v">integer</td>
+  <td class="desc">terminal screen height</td>
+  <td class="def">200</td>
+  <td class="req">optional</td>
+</tr>
+
+<tr>
+  <td><code class="w3-codespan">background</code></td>
+  <td class="v">Hex Color</td>
+  <td class="desc">terminal screen background</td>
+  <td class="def">#000000</td>
+  <td class="req">optional</td>
+</tr>
+
+<tr>
+  <td><code class="w3-codespan">border</code></td>
+  <td class="v">integer</td>
+  <td class="desc">terminal screen border</td>
+  <td class="def">3</td>
+  <td class="req">optional</td>
+</tr>
+
+<tr>
+  <td><code class="w3-codespan">radius</code></td>
+  <td class="v">integer</td>
+  <td class="desc">terminal screen border radius if set border</td>
+  <td class="def">6</td>
+  <td class="req">optional</td>
+</tr>
+<tr>
+  <td><code class="w3-codespan">borderColor</code></td>
+  <td class="v">Hex Color</td>
+  <td class="desc">terminal screen border color if set border</td>
+  <td class="def">#c0b2b2</td>
+  <td class="req">optional</td>
+</tr>
+
+
+<tr>
+  <td><code class="w3-codespan">opacity</code></td>
+  <td class="v">double from 0 to 1</td>
+  <td class="desc">terminal screen opacity</td>
+  <td class="def">1</td>
+  <td class="req">optional</td>
+</tr>
+
+
+</tbody>
+</table>
+
+
+
+      </div>
+    </div>
+
+<div class="panel panel-default func">
+      <div class="panel-heading">CallBack function</div>
+      <div class="panel-body">
+    <pre class="code">
+   
+    <b>terminal({termianlOptions},YourCallback_function);</b>
+    Callback_function: will run after terminal finish all lines
+    it should be written without brackets
+    </pre>
+      </div>
+</div>
+<div class="panel panel-primary func">
+      <div class="panel-heading">Close Terminal</div>
+      <div class="panel-body">
+    <pre class="code">
+   
+    <b>close_terminal(TermianlID , AnimateClosing);</b>
+    TermianlID: is id property that you are entered in termianl function
+    AnimateClosing: boolean (if true will animate terminal when close) -- default = false
+    </pre>
+      </div>
+</div>
+
+</div>
+
+
+    <script src="docs/js/jquery.min.js"></script>
+    <script src="docs/js/bootstrap.min.js"></script>
+    <script src="docs/js/scripts.js"></script>
+
+
+
+
+
+
+
+<script type="text/javascript" src="src/terminal.min.js"></script>
 <script type="text/javascript">
-function terminal_callback(){
-	hide_terminal(1);
+function terminal_simapl_usage(){
+  terminal({id: 'terminal_simapl_usage',data: ["terminal-line 1","terminal-line 2","terminal-line 3","terminal-line 4","terminal-line 5"]},function(){close_terminal('terminal_simapl_usage',false);});
+  $(".terminal_simapl_usage").remove();
 }
-var t_data = [];
-var rand_colors = ["FF0000",'00FF00','0000FF','FFA500','FFFF00','00FFFF','ffffff','808080','ffcccc','ffe6e6','660000','ffff00','00ffff','867979','ff9999'];
-for ( var i = 0, l = 100; i <= l; i++ ) {
-	random_clor = rand_colors[Math.floor(Math.random()*rand_colors.length)];
-	t_data.push('Terminal line <i style="color: #'+random_clor+';">('+i+')</i>');
+  // var terminal_data = ["terminal-line 1","terminal-line 2","terminal-line 3","terminal-line 4","terminal-line 5"];
+
+function advanced_usage_code(){var t_data = [];for ( var i = 0, l = 50; i <= l; i++ ) {t_data.push('Terminal line Content '+i);}
+$(".advanced-usage-code").remove();
+  terminal({
+        id: 2017,
+        data: t_data,
+        speed: 0.2,
+        autoClose: true,
+        title: "Terminal Title",
+        title_bg_color: 'white',
+        title_color: 'black',
+        textColor: "#ffffff",
+        beep: true,
+        wait: 0,
+        dir: 'ltr',
+        position: 'topRight',
+        background: '#432454',
+        width: 450,
+        height: 350,
+        opacity: 0.9,
+        border: 13,
+        margin: 20,
+        borderColor: '#432454',
+        radius: 6
+    },function(){
+      console.log('Terminal Completed Callback_function()');
+    }
+  );
 }
-
-
-
-terminal({
-	id: 1,
-	data: t_data,
-	speed: 0.7,
-	title: "Mahmoud Saad Terminal",
-	title_bg_color: 'white',
-	title_color: 'black',
-	textColor: "#ffffff",
-	beep: true,
-	wait: 0,
-	dir: 'ltr',
-	position: 'topRight',//topRight , topCenter , bottomLeft , bottomRight , bottomCenter , centerLeft , centerRight , centerCenter
-	background: '',
-	width: 500,
-	height: 400,
-	opacity: 0.9,
-	border: 13,
-	// margin: 60,
-	borderColor: '#432454',
-	radius: 20,
-},terminal_callback
-);
 </script>
- </body>
+
+
+<script type="text/javascript">
+  // advanced_usage_code()
+  terminal({
+        id: 'terminal_welcome',
+        data: ['Welcome to terminal...'],
+        speed: 0.2,
+        // autoClose: true,
+        closeAfter: 1,
+        animateOut: true,
+        fontSize: 35,
+        wait: 10,
+        beep: true,
+        position: 'bottomCenter',
+        width: 400,
+        height: 50,
+        opacity: 0.85,
+        border: 1,
+        margin: 20,
+        background: "#432454",
+        borderColor: '#432454',
+        radius: 6
+    }
+  );
+</script>
+  </body>
 </html>
